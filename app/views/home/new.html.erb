@@ -1,0 +1,19 @@
+
+<h1>Create Short Urls</h1>
+<p>https:// or http:// must be included </p>
+<%= form_tag home_create_path, method: :post do %>
+	<%= text_field_tag 'url[original_url]', nil, placeholder: "https://www.google.com" %>
+	<%= submit_tag :create %>
+<% end %>
+
+<% if params[:shorten_url].present? %>
+	<p>Shorten url is: <a href="<%= params[:shorten_url] %>" target="_blank"><%= params[:shorten_url] %></a></p>
+<% end %>
+
+<% if params[:error].present? %>
+	<p>
+		<%= params[:error] %>
+	</p>
+<% end %>
+
+<%= link_to 'Links history', home_index_path %>

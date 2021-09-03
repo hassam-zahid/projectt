@@ -1,0 +1,5 @@
+<h1>Most frequently opened links</h1>
+
+<% @links.each do |link| %>
+	<p><%= link.original_url %> | <%= link.opened_count %></p>
+<% end%>
